@@ -6,11 +6,21 @@
     <title>Subir archivo de denegaciones</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        tr:hover {
-            background-color: #f5f5f5;
+        .highlight {
+            color: #c80425; /* red cream color */
+        }
+        .table-striped tr:hover:nth-child(odd) {
+            background-color: #ebf9ff; /* Light gray */
+        }
+        .table-striped tr:hover:nth-child(even) {
+            background-color: #ebf9ff; /* Light blue */
+        }
+        .table-striped tr:hover {
+            background-color: rgba(0, 0, 0, 0.1); /* Darker shade for hover effect */
             cursor: pointer;
         }
-    </style>
+        </style>
+    
 </head>
 <body>
     <div class="container mt-4">
@@ -44,7 +54,7 @@
                 </thead>
                 <tbody>
                     {% for row in latest_upload_data %}
-                    <tr onclick="redirectToDetails('{{ row['Centro'] }}', '{{ row['Caja'] }}')">
+                    <tr class="{% if row['Cod. Estado'] == 1 or row['Cod. Estado'] == 12 %}highlight{% endif %}" onclick="redirectToDetails('{{ row['Centro'] }}', '{{ row['Caja'] }}')">
                         <td>{{ row['Centro'] }}</td>
                         <td>{{ row['Caja'] }}</td>
                         <td>{{ row['Cod. Estado'] }}</td>
