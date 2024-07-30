@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <title>Detalles de Caja/Centro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .table-striped tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+        .table-striped tr:nth-child(even) {
+            background-color: #e6f7ff;
+        }
+        .table-striped th, .table-striped td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Detalles de Caja/Centro - Centro: {{ centro }}, Caja: {{ caja }}</h1>
+        {% if details_data %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Fecha /Hora</th>
+                        <th>Cod. Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in details_data %}
+                    <tr>
+                        <td>{{ row['Fecha /Hora'] }}</td>
+                        <td>{{ row['Cod. Estado'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No hay datos disponibles para este centro y caja.</p>
+        {% endif %}
+        <form action="/" method="get">
+            <button type="submit" class="btn btn-secondary">Volver</button>
+        </form>
+    </div>
+</body>
+</html>
