@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, url_for, flash
-from .utils import process_file, calculate_file_hash, get_latest_upload_data, get_denegations_last_7_days, get_details_for_box, get_latest_file_hash
+from .file_processing import process_file, calculate_file_hash
+from .utils import get_latest_upload_data, get_denegations_last_7_days, get_details_for_box, get_latest_file_hash
 from .database import save_to_db, check_file_hash_exists
 
 def configure_routes(app):

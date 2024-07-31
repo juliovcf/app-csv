@@ -3,7 +3,7 @@ import hashlib
 
 def process_file(file):
     df = pd.read_csv(file, encoding='latin1', delimiter=';', on_bad_lines='skip')
-    relevant_columns = ['Centro', 'Caja', 'Fecha /Hora', 'Cod. Estado']
+    relevant_columns = ['Centro', 'Caja', 'Fecha /Hora', 'Cod. Estado', 'Duración']
     df = df[relevant_columns]
     df['Fecha /Hora'] = pd.to_datetime(df['Fecha /Hora'], format='%d/%m/%Y %H:%M:%S')
     return df
